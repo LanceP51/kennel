@@ -7,6 +7,16 @@ import React, { Component } from 'react'
         //define what this component needs to render
         state = {
             employees: [],
+        };
+
+        deleteEmployee = (id)=>{
+            EmployeeManager.delete(id)
+            .then(EmployeeManager.getAll)
+            .then(parsedEmployees => (
+                this.setState({
+                    employees:parsedEmployees
+                })
+            ))
         }
 
     componentDidMount(){
@@ -21,12 +31,24 @@ import React, { Component } from 'react'
     }
 
     render(){
-        // console.log("Employee LIST: Render");
-
         return(
+
+            <>
+<section className="section-content">
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              this.props.history.push("/employees/new");
+            }}
+          >
+            New Employee
+          </button>
+        </section>
             <div className="container-cards">
-                {this.state.employees.map(singleEmployee => <EmployeeCard key={singleEmployee.id} employeeProp={singleEmployee} />)}
+                {this.state.employees.map(singleEmployee => <EmployeeCard deleteEmployeeProp={this.deleteEmployee} key={singleEmployee.id} employeeProp={singleEmployee} />)}
             </div>
+            </>
         )
     }
 }

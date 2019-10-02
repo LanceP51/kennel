@@ -1,0 +1,22 @@
+{
+    "animals": [
+        { "id": 1, "name": "Doodles", "breed": "Poodle"},
+        { "id": 2, "name": "Decker", "breed": "German Sheperd" },
+        { "id": 3, "name": "Esme", "breed": "Pitbull" }
+    ],
+    "owners": [
+        { "id": 1, "name": "Zack", "number": "1-125-456-7351"},
+        { "id": 2, "name": "Sarah and Jack", "number": "1-987-896-7512" },
+        { "id": 3, "name": "Emily", "number": "1-458-789-7894" }
+    ],
+    "locations": [
+        { "id": 1, "name": "Student Kennels North", "slogan": "Where the best gets better.", "area": "Nashville North", "address": "78 Circle Dr."},
+        { "id": 2, "name": "Student Kennels East", "slogan": "Teaching one pet at a time.", "area": "Capitol East", "address": "123 Summer St." },
+        { "id": 3, "name": "Student Kennels Central", "slogan": "Check-out, Check-in, Check Us Out.", "area": "Downtown", "address": "777 Kennel Dr." }
+    ],
+    "employees": [
+        { "id": 1, "name": "Darren", "position": "Office Manager"},
+        { "id": 2, "name": "John", "position": "Veterinarian" },
+        { "id": 3, "name": "Rachel", "position": "Bather" }
+    ]
+}

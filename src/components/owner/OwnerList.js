@@ -7,6 +7,16 @@ import React, { Component } from 'react'
         //define what this component needs to render
         state = {
             owners: [],
+        };
+
+        deleteOwner = (id)=>{
+            OwnerManager.delete(id)
+            .then(OwnerManager.getAll)
+            .then(parsedOwners => (
+                this.setState({
+                    owners:parsedOwners
+                })
+            ))
         }
 
     componentDidMount(){
@@ -23,10 +33,22 @@ import React, { Component } from 'react'
     render(){
         // console.log("Owner LIST: Render");
 
-        return(
+        return(<>
+<section className="section-content">
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              this.props.history.push("/owners/new");
+            }}
+          >
+            New Owner
+          </button>
+        </section>
             <div className="container-cards">
-                {this.state.owners.map(singleOwner => <OwnerCard key={singleOwner.id} ownerProp={singleOwner} />)}
+                {this.state.owners.map(singleOwner => <OwnerCard deleteOwnerProp={this.deleteOwner} key={singleOwner.id} ownerProp={singleOwner} />)}
             </div>
+            </>
         )
     }
 }
